@@ -1,4 +1,5 @@
 var React = require('react');
+import { Button } from 'semantic-ui-react'
 
 class Leaderboard extends React.Component {
   constructor(props) {
@@ -23,19 +24,19 @@ class Leaderboard extends React.Component {
     var languages = ['All', 'JavaScript', 'Python', 'Ruby', 'Java', 'CSS'];
   
     return (
-      <ul>
+      <div>
         {languages.map(function(language) {
           return (
-            <li
+            <Button
               style={this.state.selectedLanguage === language ? {color: 'blue'} : null}
               key={language}
               onClick={this.updateLanguage.bind(this, language)}
             >
               {language}
-            </li>
+            </Button>
           )
         }.bind(this))}
-      </ul>
+      </div>
     )
   }
 }

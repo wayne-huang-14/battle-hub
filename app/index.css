@@ -1,3 +1,17 @@
+html {
+  font-family: 'Raleway',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+}
+
 body {
-  background: #ccc;
+  background: #FFFFFF;
+}
+
+.container {
+  max-width: 87.5rem;
+  margin: 0 auto;
+}
+
+button.ui.button {
+  font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+
 }
