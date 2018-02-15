@@ -1,6 +1,6 @@
 var React = require('react');
 var PropTypes = require('prop-types');
-import { Button } from 'semantic-ui-react'
+import {Button, Grid} from 'semantic-ui-react'
 
 /**
  * Select Language group that displays the language buttons.
@@ -13,18 +13,24 @@ function SelectLanguageGroup(props) {
   var languages = ['All', 'JavaScript', 'Python', 'Ruby', 'Java', 'CSS'];
   
   return (
-    <div>
-    {languages.map(function(language) {
-      return (
-        <Button
-        style={props.selectedLanguage === language ? {color: 'blue'} : null}
-        key={language}
-        onClick={props.handleOnClick.bind(null, language)}
-        >
-          {language}
-        </Button>
-      )
-    })}
+    <div className='select-language-group-container'>
+      <Grid>
+        {languages.map(function (language) {
+          return (
+            <Grid.Column
+              key={language}
+              className='language-group-columns'
+            >
+              <Button
+                active={props.selectedLanguage === language}
+                onClick={props.handleOnClick.bind(null, language)}
+              >
+                {language === 'All' ? 'Repository King' : language}
+              </Button>
+            </Grid.Column>
+          )
+        })}
+      </Grid>
     </div>
   )
 }
