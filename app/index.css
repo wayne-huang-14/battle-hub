@@ -11,6 +11,26 @@ body {
   line-height: 1.618;
 }
 
+h1, h2, h3, h4 {
+  font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  text-align: center;
+}
+
+h3 {
+  color: #000000;
+  font-size: 4rem;
+  margin: 0.8em 0;
+  line-height: 1;
+}
+
+h5 {
+  font-family: 'Raleway',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-size: 0.875rem;
+  font-weight: 200;
+  font-style: italic;
+  text-align: center;
+}
+
 .container {
   max-width: 77.5rem;
   margin: 0 auto;
@@ -41,9 +61,12 @@ button.ui.button.active, button.ui.button.active:hover {
 /**
 Leaderboard
  */
+#leaderboard h3 {
+  margin-bottom: 1.875rem;
+}
 
-.select-language-group-container {
-  margin-top: 2rem;
+#leaderboard h5 {
+  margin-bottom: 3.125rem;
 }
 
 .language-group-columns {

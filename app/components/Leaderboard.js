@@ -61,7 +61,9 @@ class Leaderboard extends React.Component {
   
   render() {
     return (
-      <div>
+      <div id="leaderboard">
+        <h3>See Which One's At The Top</h3>
+        <h5>Choose a category and see which repository has more stars and entered the top 30 listing.</h5>
         <SelectLanguageGroup
           selectedLanguage={this.state.selectedLanguage}
           handleOnClick={this.updateLanguage.bind(this)}
