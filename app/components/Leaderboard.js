@@ -135,6 +135,10 @@ function RepoTable(props) {
   )
 }
 
+RepoTable.prototypes = {
+  repos: PropTypes.array.isRequired
+};
+
 /**
  * Select Language group that displays the language buttons.
  *
