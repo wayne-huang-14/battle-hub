@@ -93,8 +93,36 @@ Leaderboard
   text-align: center;
 }
 
+.leaderboard-top-repos {
+  background: #D0F2FF;
+}
+
+.leaderboard-mid-repos {
+  background: #F0F0F0;
+}
+
+.leaderboard-rank {
+  font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-size: 1.56rem;
+}
+
+.leaderboard-username-container {
+  text-align: left;
+}
+
+.leaderboard-avatar-container {
+  width: 3rem;
+  display: inline-block;
+}
+
 .avatar {
   width: 2.5rem;
   height: auto;
   border-radius: 50%;
+  vertical-align: middle;
+}
+
+.leaderboard-username {
+  padding-left: 1rem;
+  font-weight: 600;
 }
