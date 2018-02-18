@@ -147,7 +147,7 @@ function SelectLanguageGroup(props) {
   
   return (
     <div className='select-language-group-container'>
-      <Grid>
+      <Grid columns={6}>
         {languages.map(function (language) {
           return (
             <Grid.Column

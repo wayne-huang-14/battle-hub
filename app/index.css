@@ -69,10 +69,6 @@ Leaderboard
   margin-bottom: 4.14rem;
 }
 
-.language-group-columns {
-  /*flex-basis: 12rem;*/
-}
-
 #leaderboard .table-wrapper table {
   border: none;
 }
