@@ -210,6 +210,14 @@ class Leaderboard extends React.Component {
   }
   
   render() {
+    /**
+     * Scrolls the document body to the top.
+     */
+    var scrollToTop = function() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+    
     return (
       <div id="leaderboard">
         <h3>See Which One's At The Top</h3>
@@ -224,6 +232,16 @@ class Leaderboard extends React.Component {
             repos={this.state.repos}
           />
         }
+        <section className='leaderboard-footnotes'>
+          <p>All information is taken from GitHub.com</p>
+          <div>
+            <Button
+              onClick={scrollToTop}
+            >
+              BACK TO TOP
+            </Button>
+          </div>
+        </section>
       </div>
     )
   }

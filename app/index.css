@@ -31,12 +31,11 @@ h3 {
 
 button.ui.button {
   font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-  width: 13.21rem;
   height: 4.43rem;
-  background-color: #99DDF7;
+  background: #99DDF7;
   border: 1px solid #5CC9F3;
   color: #000000;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: normal;
   padding: unset;
 }
@@ -67,6 +66,10 @@ Leaderboard
 
 .select-language-group-container {
   margin-bottom: 4.14rem;
+}
+
+.select-language-group-container button.ui.button {
+  width: 13.21rem;
 }
 
 #leaderboard .table-wrapper table {
@@ -118,4 +121,18 @@ Leaderboard
   padding-left: 0.8rem;
   font-weight: 600;
   font-size: 1.43rem;
+}
+
+.leaderboard-footnotes {
+  text-align: center;
+}
+
+.leaderboard-footnotes p {
+  text-align: right;
+  font-style: italic;
+  margin-bottom: 4rem;
+}
+
+.leaderboard-footnotes button.ui.button {
+  width: 21rem;
 }
