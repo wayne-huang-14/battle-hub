@@ -2,14 +2,15 @@
 General
  */
 html {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
   font-family: 'Raleway',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   background: #FFFFFF;
   line-height: 1.618;
+  color: #000000;
 }
 
 h1, h2, h3, h4 {
@@ -18,33 +19,24 @@ h1, h2, h3, h4 {
 }
 
 h3 {
-  color: #000000;
-  font-size: 4rem;
-  margin: 0.8em 0;
+  font-size: 4.6rem;
+  margin: 2.5rem 0;
   line-height: 1;
 }
 
-h5 {
-  font-family: 'Raleway',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-  font-size: 0.875rem;
-  font-weight: 200;
-  font-style: italic;
-  text-align: center;
-}
-
 .container {
-  max-width: 77.5rem;
+  max-width: 88.57rem;
   margin: 0 auto;
 }
 
 button.ui.button {
   font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-  width: 11.56rem;
-  height: 3.75rem;
+  width: 13.21rem;
+  height: 4.43rem;
   background-color: #99DDF7;
   border: 1px solid #5CC9F3;
   color: #000000;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: normal;
   padding: unset;
 }
@@ -62,19 +54,23 @@ button.ui.button.active, button.ui.button.active:hover {
 /**
 Leaderboard
  */
-.select-language-group-container {
-  margin-bottom: 3.75rem;
-}
-#leaderboard h3 {
-  margin-bottom: 1.875rem;
+.subheading {
+  font-weight: 200;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 3.5rem;
 }
 
-#leaderboard h5 {
-  margin-bottom: 3.125rem;
+#leaderboard h3 {
+  margin-bottom: 2.5rem;
+}
+
+.select-language-group-container {
+  margin-bottom: 4.14rem;
 }
 
 .language-group-columns {
-  flex-basis: 12rem;
+  /*flex-basis: 12rem;*/
 }
 
 #leaderboard .table-wrapper table {
@@ -83,7 +79,7 @@ Leaderboard
 
 #leaderboard th {
   font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-  font-size: 1.56rem;
+  font-size: 1.8rem;
   background: #FFFFFF;
   border: none;
   text-align: center;
@@ -103,7 +99,7 @@ Leaderboard
 
 .leaderboard-rank {
   font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-  font-size: 1.56rem;
+  font-size: 1.8rem;
 }
 
 .leaderboard-username-container {
@@ -116,13 +112,14 @@ Leaderboard
 }
 
 .avatar {
-  width: 2.5rem;
+  width: 3rem;
   height: auto;
   border-radius: 50%;
   vertical-align: middle;
 }
 
 .leaderboard-username {
-  padding-left: 1rem;
+  padding-left: 0.8rem;
   font-weight: 600;
+  font-size: 1.43rem;
 }

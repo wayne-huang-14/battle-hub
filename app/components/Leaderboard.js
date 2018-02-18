@@ -15,7 +15,7 @@ import starsIcon from '../images/stars.png';
 function RepoTable(props) {
   var repos = props.repos;
   var crownIconStyles = {
-    width: '3.2rem',
+    width: '3.8rem',
     paddingTop: '0.4rem',
     background: 'no-repeat url("' + crownIcon + '") top right'
   };
@@ -213,7 +213,7 @@ class Leaderboard extends React.Component {
     return (
       <div id="leaderboard">
         <h3>See Which One's At The Top</h3>
-        <h5>Choose a category and see which repository has more stars and entered the top 30 listing.</h5>
+        <p className='subheading'>Choose a category and see which repository has more stars and entered the top 30 listing.</p>
         <SelectLanguageGroup
           selectedLanguage={this.state.selectedLanguage}
           handleOnClick={this.updateLanguage.bind(this)}
