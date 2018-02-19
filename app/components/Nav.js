@@ -1,9 +1,13 @@
 var React = require('react');
 var NavLink = require('react-router-dom').NavLink;
+var logoIcon = require('../images/logo.png');
 
 function Nav() {
   return (
     <nav id='main-menu'>
+      <div className='logo'>
+        <img src={logoIcon} alt="Battle Hub" />
+      </div>
       <ul>
         <li>
           <NavLink exact to="/" activeClassName="active">Home</NavLink>

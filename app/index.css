@@ -28,9 +28,14 @@ a {
   color: #000;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   max-width: 88.57rem;
-  margin: 0 auto;
+  margin: 5rem auto 0;
 }
 
 button.ui.button {
@@ -73,12 +78,21 @@ nav ul li {
   padding-left: 4.3rem;
 }
 
+.logo {
+  position: absolute;
+  top: 4rem;
+}
+
 .active {
   color: #2A9DC9;
 }
+
 /**
 Leaderboard
  */
+#leaderboard {
+  margin-top: 10rem;
+}
 .subheading {
   font-weight: 200;
   font-style: italic;
