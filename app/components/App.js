@@ -18,6 +18,9 @@ class App extends React.Component {
             <Route exact path="/" component={Home}/>
             <Route path="/battle" component={Battle}/>
             <Route path="/leaderboard" component={Leaderboard}/>
+            <Route render={function() {
+              return <p>Page Not Found</p>;
+            }} />
           </Switch>
         </div>
       </Router>
