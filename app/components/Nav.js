@@ -1,22 +1,21 @@
 var React = require('react');
-var Router = require('react-router-dom').Router;
 var NavLink = require('react-router-dom').NavLink;
 
 function Nav() {
   return (
-    <div>
+    <nav id='main-menu'>
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink exact to="/" activeClassName="active">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/battle">Battle</NavLink>
+          <NavLink to="/battle" activeClassName="active">Battle</NavLink>
         </li>
         <li>
-          <NavLink to="/leaderboard">Leaderboard</NavLink>
+          <NavLink to="/leaderboard" activeClassName="active">Leaderboard</NavLink>
         </li>
       </ul>
-    </div>
+    </nav>
   )
 }
 
