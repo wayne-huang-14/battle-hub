@@ -114,7 +114,59 @@ Home
 /*
 Battle
 */
+#battle {
+  margin-top: 7rem;
+}
 
+#battle h3 {
+  margin-bottom: 5rem;
+}
+
+.battle-username-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.player-input-wrapper {
+  height: 28rem;
+  width: 20rem;
+  border: 1px solid #D8D8D8;
+  border-radius: 10px;
+  background-color: #F0F0F0;
+  padding: 1.7rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.player-input-wrapper form {
+  margin-bottom: 1rem;
+}
+
+.player-input-wrapper label {
+  font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.4rem;
+  display: block;
+}
+.player-input-wrapper input[type=text] {
+  width: 15rem;
+  height: 2rem;
+  border: 1px solid #D8D8D8;
+  background-color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.player-input-wrapper input[type=image] {
+  position: absolute;
+  bottom: 2rem;
+  left: 8rem;
+}
+
+.player-input-wrapper input + p {
+  font-style: italic;
+}
 
 /*
 Leaderboard
