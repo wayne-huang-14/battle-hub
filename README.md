@@ -33,6 +33,11 @@ A browser tab with localhost will appear and the landing page will show.
 * [Lodash](https://lodash.com/) - A modern JavaScript utility library delivering modularity, performance & extras.
 * [Semantic UI](https://react.semantic-ui.com) - UI library
 
+## Versions
+* 1.0 
+- Leaderboard access of repositories based on languages
+- Rough draft of homepage
+- Battle component built to capture players user names but no results
 
 ## Contributing
 
