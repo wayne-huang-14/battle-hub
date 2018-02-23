@@ -39,10 +39,6 @@ A browser tab with localhost will appear and the landing page will show.
 - Rough draft of homepage
 - Battle component built to capture players user names but no results
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Authors
 
 * **Wayne Huang** - *Developer*
