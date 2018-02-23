@@ -1,5 +1,9 @@
 var axios = require('axios');
 
+const id = "87313cc0a9b63da78945";
+const sec = "ee9ea98f2897d5d4bec6af3abd8e99a8114a2734";
+const params = `?client_id=${id}&client_secret=${sec}`;
+
 /**
  * Gets the user's profile information.
  *
@@ -18,7 +22,7 @@ function getProfile(username) {
  * @param username
  */
 function getRepos(username) {
-  return axios.get('https://api.github.com/users/' + username + '/repos' + '&per_page=100');
+  return axios.get('https://api.github.com/users/' + username + '/repos' + params + '&per_page=100');
 }
 
 /**
@@ -27,8 +31,8 @@ function getRepos(username) {
  * @param repos
  */
 function getStarCount(repos) {
-  return repos.reduce(function(accumulator, repo) {
-    return accumulator + repo.stargazers_count;
+  return repos.data.reduce(function(count, repo) {
+    return count + repo.stargazers_count;
   }, 0);
 }
 
@@ -77,7 +81,7 @@ function getUserData(username) {
     
     return {
       profile: profile,
-      score: calculateScore(repos)
+      score: calculateScore(profile, repos)
     }
   })
 }
