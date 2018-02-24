@@ -1,7 +1,34 @@
 var React = require('react');
+var PropTypes = require('prop-types');
 var api = require('../utils/api');
 var queryString = require('query-string');
 var Link = require('react-router-dom').Link;
+var PlayerPreview = require('./PlayerPreview');
+import { Button } from 'semantic-ui-react';
+var leftSwordClash = require('../images/left-sword-clash.png');
+
+function PlayerInfo(props) {
+  var profile = props.profile;
+  
+  return (
+    <div className='player-profile-container'>
+      <ul style={{textAlign: props.textAlignClass}}>
+        <li>OTHER INFO</li>
+        {profile.name && <li>{profile.name}</li>}
+        {profile.location && <li>{profile.location}</li>}
+        {profile.company && <li>{profile.company}</li>}
+        <li>Followers: {profile.followers}</li>
+        <li>Following: {profile.following}</li>
+        <li>Public Repos: {profile.public_repos}</li>
+        {profile.blog && <li><a href={profile.blog}>{profile.blog}</a></li>}
+      </ul>
+    </div>
+  )
+}
+
+PlayerPreview.prototypes = {
+  profile: PropTypes.object.isRequired
+};
 
 class Results extends React.Component {
   constructor(props) {
@@ -65,8 +92,42 @@ class Results extends React.Component {
     }
     
     return (
-      <div>
-        {JSON.stringify(this.state, null, 2)}
+      <div id='results'>
+        <h3>To The Victor The Spoils!</h3>
+        <div className='battle-username-container'>
+          <PlayerInfo
+            profile={winner.profile}
+            textAlignClass='right'
+          />
+          <PlayerPreview
+            title='Won'
+            username={winner.profile.login}
+            score={winner.score}
+            image={winner.profile.avatar_url}
+          >
+          </PlayerPreview>
+          <div className='swords-icon-container'>
+            {<img src={leftSwordClash} alt='Left sword dominating right sword.'/>}
+          </div>
+          <PlayerPreview
+            title='Lost'
+            username={loser.profile.login}
+            score={loser.score}
+            image={loser.profile.avatar_url}
+          >
+          </PlayerPreview>
+          <PlayerInfo
+            profile={loser.profile}
+            textAlignClass='left'
+          />
+        </div>
+        <div className='battle-again-container'>
+          <Link to="/battle">
+            <Button>
+              BATTLE AGAIN
+            </Button>
+          </Link>
+        </div>
       </div>
     )
   }

@@ -1,44 +1,10 @@
 var React = require('react');
 var Proptypes = require('prop-types');
-var yesIcon = require('../images/yes.png');
-var noIcon = require('../images/no.png');
 var Link = require('react-router-dom').Link;
+var PlayerPreview = require('./PlayerPreview');
 import {Button} from 'semantic-ui-react';
-
-/**
- * The player preview view when the username is entered.
- *
- * @param props
- * @returns {*}
- * @constructor
- */
-function PlayerPreview(props) {
-  return (
-    <div className='player-wrapper'>
-      <div className='player-preview-title'>Ready To Fight!</div>
-      <h4>@{props.username}</h4>
-      <div className='player-preview-image-wrapper'>
-        <img
-          src={props.image}
-          alt={'Avatar for ' + props.username}
-        />
-      </div>
-      <a className='confirm-cancel-icon'>
-        <img
-          src={noIcon}
-          onClick={props.onReset.bind(null, props.id)}
-        />
-      </a>
-    </div>
-  )
-}
-
-PlayerPreview.prototypes = {
-  username: Proptypes.string.isRequired,
-  id: Proptypes.string.isRequired,
-  image: Proptypes.string.isRequired,
-  onReset: Proptypes.func.isRequired,
-};
+var noIcon = require('../images/no.png');
+var yesIcon = require('../images/yes.png');
 
 /**
  * The view that allows the user to enter a username.
@@ -164,7 +130,7 @@ class Battle extends React.Component {
     var playerTwoName = this.state.playerTwoName;
     var playerTwoImage = this.state.playerTwoImage;
     var match = this.props.match;
-    
+  
     return (
       <div id="battle">
         <h3>Are You Ready?</h3>
@@ -179,11 +145,17 @@ class Battle extends React.Component {
           
           {playerOneImage !== null &&
           <PlayerPreview
-            id='playerOne'
+            title='Ready To Fight!'
             username={playerOneName}
             image={playerOneImage}
-            onReset={this.handleReset}
-          />
+          >
+            <a className='confirm-cancel-icon'>
+              <img
+                src={noIcon}
+                onClick={this.handleReset.bind(null, 'playerOne')}
+              />
+            </a>
+          </PlayerPreview>
           }
           
           {!playerTwoName &&
@@ -196,11 +168,17 @@ class Battle extends React.Component {
           
           {playerTwoImage !== null &&
           <PlayerPreview
-            id='playerTwo'
+            title='Ready To Fight!'
             username={playerTwoName}
             image={playerTwoImage}
-            onReset={this.handleReset}
-          />
+          >
+            <a className='confirm-cancel-icon'>
+              <img
+                src={noIcon}
+                onClick={this.handleReset.bind(null, 'playerTwo')}
+              />
+            </a>
+          </PlayerPreview>
           }
         </section>
         {playerOneImage && playerTwoImage &&
