@@ -1,12 +1,15 @@
 var React = require('react');
 var NavLink = require('react-router-dom').NavLink;
+var Link = require('react-router-dom').Link;
 var logoIcon = require('../images/logo.png');
 
 function Nav() {
   return (
     <nav id='main-menu'>
       <div className='logo'>
-        <img src={logoIcon} alt="Battle Hub" />
+        <Link to='/'>
+          <img src={logoIcon} alt="Battle Hub" />
+        </Link>
       </div>
       <ul>
         <li>

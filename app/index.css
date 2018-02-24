@@ -16,10 +16,11 @@ body {
 h1, h2, h3, h4 {
   font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
   text-align: center;
+  font-weight: normal;
 }
 
 h3 {
-  font-size: 4.6rem;
+  font-size: 4.5rem;
   margin: 2.5rem 0;
   line-height: 1;
 }
@@ -119,6 +120,21 @@ Home
 
 #home a:hover {
   color: #FFFFFF;
+}
+
+#home section {
+  text-align: center;
+  margin-bottom: 7rem;
+}
+
+.home-leaderboard {
+  position: relative;
+}
+
+.home-leaderboard a {
+  position: absolute;
+  left: 37rem;
+  top: 35rem;
 }
 
 /*
