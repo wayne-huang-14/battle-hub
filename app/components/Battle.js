@@ -7,6 +7,7 @@ var noIcon = require('../images/no.png');
 var yesIcon = require('../images/yes.png');
 var leftSword = require('../images/left-sword.png');
 var rightSword = require('../images/right-sword.png');
+var leftRightSword = require('../images/left-right-sword.png');
 
 /**
  * The view that allows the user to enter a username.
@@ -99,11 +100,14 @@ class Battle extends React.Component {
       playerOneName: '',
       playerOneImage: null,
       playerTwoName: '',
-      playerTwoImage: null
+      playerTwoImage: null,
+      swordClash: false,
     };
     
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReset = this.handleReset.bind(this);
+    this.handleFightButtonMouseOver = this.handleFightButtonMouseOver.bind(this);
+    this.handleFightButtonMouseOut = this.handleFightButtonMouseOut.bind(this);
   }
   
   handleSubmit(id, username) {
@@ -126,12 +130,29 @@ class Battle extends React.Component {
     });
   }
   
+  handleFightButtonMouseOver() {
+    this.setState(function() {
+      return {
+        swordClash: true
+      }
+    })
+  }
+  
+  handleFightButtonMouseOut() {
+    this.setState(function() {
+      return {
+        swordClash: false
+      }
+    })
+  }
+  
   render() {
     var playerOneName = this.state.playerOneName;
     var playerOneImage = this.state.playerOneImage;
     var playerTwoName = this.state.playerTwoName;
     var playerTwoImage = this.state.playerTwoImage;
     var match = this.props.match;
+    var swordClash = this.state.swordClash;
   
     return (
       <div id="battle">
@@ -161,11 +182,16 @@ class Battle extends React.Component {
           }
           
           <div className='swords-icon-container'>
-            {playerOneImage !== null &&
+            {(playerOneImage !== null && !swordClash) &&
               <img src={leftSword} alt='Left Sword' />
             }
-            {playerTwoImage !== null &&
+            
+            {(playerTwoImage !== null && !swordClash) &&
               <img src={rightSword} alt='Right Sword' />
+            }
+            
+            {swordClash &&
+              <img src={leftRightSword} alt='Swords clashing' />
             }
           </div>
           
@@ -200,7 +226,10 @@ class Battle extends React.Component {
               search: '?playerOneName=' + playerOneName + '&playerTwoName=' + playerTwoName
             }}
           >
-            <Button>
+            <Button
+              onMouseOver={this.handleFightButtonMouseOver}
+              onMouseOut={this.handleFightButtonMouseOut}
+            >
               Fight To The Death!
             </Button>
           </Link>
