@@ -18,7 +18,7 @@ function PlayerPreview(props) {
     >
       <div className='player-preview-title'>{props.title}</div>
       <h4>@{props.username}</h4>
-      {props.score && <p>Score: {props.score}</p>}
+      {Number.isInteger(props.score) && <p>Score: {props.score}</p>}
       <div className='player-preview-image-wrapper'>
         {props.title === 'Won'&& <div className='won-crown'></div>}
         <img
