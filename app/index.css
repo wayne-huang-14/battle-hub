@@ -150,7 +150,7 @@ Battle
 
 .battle-username-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-bottom: 8rem;
   align-items: flex-end;
 }
@@ -225,6 +225,12 @@ Battle/Results
 
 .swords-icon-container {
   height: 17rem;
+  width: 14rem;
+  text-align: center;
+}
+
+.swords-icon-container img:first-of-type {
+  padding-right: 2rem;
 }
 
 .player-profile-container {

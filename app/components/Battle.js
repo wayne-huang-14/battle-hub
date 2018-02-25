@@ -5,6 +5,8 @@ var PlayerPreview = require('./PlayerPreview');
 import {Button} from 'semantic-ui-react';
 var noIcon = require('../images/no.png');
 var yesIcon = require('../images/yes.png');
+var leftSword = require('../images/left-sword.png');
+var rightSword = require('../images/right-sword.png');
 
 /**
  * The view that allows the user to enter a username.
@@ -144,19 +146,28 @@ class Battle extends React.Component {
           }
           
           {playerOneImage !== null &&
-          <PlayerPreview
-            title='Ready To Fight!'
-            username={playerOneName}
-            image={playerOneImage}
-          >
-            <a className='confirm-cancel-icon'>
-              <img
-                src={noIcon}
-                onClick={this.handleReset.bind(null, 'playerOne')}
-              />
-            </a>
-          </PlayerPreview>
+            <PlayerPreview
+              title='Ready To Fight!'
+              username={playerOneName}
+              image={playerOneImage}
+            >
+              <a className='confirm-cancel-icon'>
+                <img
+                  src={noIcon}
+                  onClick={this.handleReset.bind(null, 'playerOne')}
+                />
+              </a>
+            </PlayerPreview>
           }
+          
+          <div className='swords-icon-container'>
+            {playerOneImage !== null &&
+              <img src={leftSword} alt='Left Sword' />
+            }
+            {playerTwoImage !== null &&
+              <img src={rightSword} alt='Right Sword' />
+            }
+          </div>
           
           {!playerTwoName &&
           <PlayerInput
