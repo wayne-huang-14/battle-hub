@@ -3,6 +3,10 @@
 Uses the Github API to view the Leaderboard of repositories.
 It can also allow two users to battle it out and show the winner based on how popular his/her repositories are.
 
+## Demo
+Production live:
+https://battle-hub.firebaseapp.com/
+
 ## Getting Started
 
 After cloning the project, run npm install to install all the dependencies.
