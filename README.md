@@ -4,6 +4,8 @@ Uses the Github API to view the Leaderboard of repositories.
 It can also allow two users to battle it out and show the winner based on how popular his/her repositories are.
 
 ## Demo
+The app is not fully completed yet according to the UX & UI design. 
+
 Production live:
 https://battle-hub.firebaseapp.com/
 
@@ -38,7 +40,15 @@ A browser tab with localhost will appear and the landing page will show.
 * [Semantic UI](https://react.semantic-ui.com) - UI library
 
 ## Versions
-* 1.0 
+The app is not fully completed yet according to the UX & UI design. 
+
+### 2.0
+- Completion of MVP of the app
+- Battle page functionality with Results view
+- Updates to Homepage
+- More features and UI changes to come
+
+### 1.0 
 - Leaderboard access of repositories based on languages
 - Rough draft of homepage
 - Battle component built to capture players user names but no results
