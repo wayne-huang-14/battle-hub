@@ -4,6 +4,7 @@ var api = require('../utils/api');
 import {Button, Grid, Table} from 'semantic-ui-react'
 import crownIcon from '../images/crown.png';
 import starsIcon from '../images/stars.png';
+var Loading = require('./Loading');
 
 /**
  * Shows the Leaderboard repositories based on language selected.
@@ -231,7 +232,7 @@ class Leaderboard extends React.Component {
           handleOnClick={this.updateLanguage.bind(this)}
         />
         {!this.state.repos
-          ? <p>Loading...</p>
+          ? <Loading />
           : <RepoTable
             repos={this.state.repos}
           />

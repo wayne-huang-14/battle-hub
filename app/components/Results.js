@@ -4,6 +4,7 @@ var api = require('../utils/api');
 var queryString = require('query-string');
 var Link = require('react-router-dom').Link;
 var PlayerPreview = require('./PlayerPreview');
+var Loading = require('./Loading');
 import { Button } from 'semantic-ui-react';
 var leftSwordClash = require('../images/left-sword-clash.png');
 
@@ -77,7 +78,7 @@ class Results extends React.Component {
     if (loading) {
       return (
         <div>
-          <p>Loading...</p>
+          <Loading />
         </div>
       )
     }
