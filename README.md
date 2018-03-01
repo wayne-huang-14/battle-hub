@@ -3,6 +3,9 @@
 Uses the Github API to view the Leaderboard of repositories.
 It can also allow two users to battle it out and show the winner based on how popular his/her repositories are.
 
+## Design
+[High Fidelity Prototype](https://invis.io/Q3G4HHVY65D)
+
 ## Demo
 The app is not fully completed yet according to the UX & UI design. 
 
