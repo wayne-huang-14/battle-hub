@@ -1,13 +1,13 @@
-var React = require('react');
-var Home = require('./Home');
-var Battle = require('./Battle');
-var Leaderboard = require('./Leaderboard');
-var Nav = require('./Nav');
-var ReactRouter = require('react-router-dom');
-var Router = ReactRouter.BrowserRouter;
-var Route = ReactRouter.Route;
-var Switch = ReactRouter.Switch;
-var Results = require('./Results');
+const React = require('react');
+const Home = require('./Home');
+const Battle = require('./Battle');
+const Leaderboard = require('./Leaderboard');
+const Nav = require('./Nav');
+const ReactRouter = require('react-router-dom');
+const Router = ReactRouter.BrowserRouter;
+const Route = ReactRouter.Route;
+const Switch = ReactRouter.Switch;
+const Results = require('./Results');
 
 class App extends React.Component {
   render() {
@@ -20,9 +20,7 @@ class App extends React.Component {
             <Route exact path="/battle" component={Battle}/>
             <Route path="/battle/results" component={Results}/>
             <Route path="/leaderboard" component={Leaderboard}/>
-            <Route render={function() {
-              return <p>Page Not Found</p>;
-            }} />
+            <Route render={() => <p>Page Not Found</p>} />
           </Switch>
         </div>
       </Router>
