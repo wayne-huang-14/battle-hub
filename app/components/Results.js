@@ -1,19 +1,24 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var api = require('../utils/api');
-var queryString = require('query-string');
-var Link = require('react-router-dom').Link;
-var PlayerPreview = require('./PlayerPreview');
-var Loading = require('./Loading');
+const React = require('react');
+const PropTypes = require('prop-types');
+const api = require('../utils/api');
+const queryString = require('query-string');
+const Link = require('react-router-dom').Link;
+const PlayerPreview = require('./PlayerPreview');
+const Loading = require('./Loading');
 import { Button } from 'semantic-ui-react';
-var leftSwordClash = require('../images/left-sword-clash.png');
+const leftSwordClash = require('../images/left-sword-clash.png');
 
-function PlayerInfo(props) {
-  var profile = props.profile;
-  
+/**
+ * Contains player info after the battle.
+ *
+ * @param profile
+ * @returns {*}
+ * @constructor
+ */
+function PlayerInfo({ profile, textAlignClass }) {
   return (
     <div className='player-profile-container'>
-      <ul style={{textAlign: props.textAlignClass}}>
+      <ul style={{textAlign: textAlignClass}}>
         <li>OTHER INFO</li>
         {profile.name && <li>{profile.name}</li>}
         {profile.location && <li>{profile.location}</li>}
@@ -44,36 +49,30 @@ class Results extends React.Component {
   }
   
   componentDidMount() {
-    var players = queryString.parse(this.props.location.search);
+    const { playerOneName, playerTwoName } = queryString.parse(this.props.location.search);
+    
     api.battle([
-      players.playerOneName,
-      players.playerTwoName
-    ]).then(function(results) {
-      if (results === null) {
-        this.setState(function() {
-          return {
-            error: 'Error: Check that both Github usernames exist.',
-            loading: false
-          }
-        })
+      playerOneName,
+      playerTwoName
+    ]).then((players) => {
+      if (players === null) {
+        this.setState(() => ({
+          error: 'Error: Check that both Github usernames exist.',
+          loading: false
+        }))
       }
       
-      this.setState(function() {
-        return {
+      this.setState(() => ({
           error: null,
-          winner: results[0],
-          loser: results[1],
+          winner: players[0],
+          loser: players[1],
           loading: false
-        }
-      })
-    }.bind(this));
+      }))
+    });
   }
   
   render() {
-    var winner = this.state.winner;
-    var loser = this.state.loser;
-    var error = this.state.error;
-    var loading = this.state.loading;
+    const { winner, loser, error, loading } = this.state;
     
     if (loading) {
       return (
