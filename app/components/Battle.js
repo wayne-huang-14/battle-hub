@@ -1,13 +1,13 @@
-var React = require('react');
-var Proptypes = require('prop-types');
-var Link = require('react-router-dom').Link;
-var PlayerPreview = require('./PlayerPreview');
+const React = require('react');
+const Proptypes = require('prop-types');
+const Link = require('react-router-dom').Link;
+const PlayerPreview = require('./PlayerPreview');
 import {Button} from 'semantic-ui-react';
-var noIcon = require('../images/no.png');
-var yesIcon = require('../images/yes.png');
-var leftSword = require('../images/left-sword.png');
-var rightSword = require('../images/right-sword.png');
-var leftRightSword = require('../images/left-right-sword.png');
+const noIcon = require('../images/no.png');
+const yesIcon = require('../images/yes.png');
+const leftSword = require('../images/left-sword.png');
+const rightSword = require('../images/right-sword.png');
+const leftRightSword = require('../images/left-right-sword.png');
 
 /**
  * The view that allows the user to enter a username.
@@ -25,22 +25,18 @@ class PlayerInput extends React.Component {
   }
   
   /**
-   * Handles when the input is changed and updates the input's value
+   * Handles when the input is changed and updates the input's value.
    *
    * @param event
    */
   handleChange(event) {
-    var value = event.target.value;
+    const value = event.target.value;
     
-    this.setState(function () {
-      return {
-        username: value
-      }
-    });
+    this.setState(() => ({username: value}));
   }
   
   /**
-   * Calls the parent's onSubmit handler to update the parent's state
+   * Calls the parent's onSubmit handler to update the parent's state.
    *
    * @param event
    */
@@ -54,9 +50,8 @@ class PlayerInput extends React.Component {
   }
   
   render() {
-    var id = this.props.id;
-    var label = this.props.label;
-    var username = this.state.username;
+    const { id, label } = this.props;
+    const { username } = this.state;
     
     return (
       <div className='player-wrapper'>
@@ -73,12 +68,12 @@ class PlayerInput extends React.Component {
           />
           <p>Please type a valid GitHub username.</p>
           {username &&
-          <input
-            className='confirm-cancel-icon'
-            type='image'
-            src={yesIcon}
-            alt='Submit'
-          />
+            <input
+              className='confirm-cancel-icon'
+              type='image'
+              src={yesIcon}
+              alt='Submit'
+            />
           }
         </form>
       </div>
@@ -110,26 +105,34 @@ class Battle extends React.Component {
     this.handleFightButtonMouseOut = this.handleFightButtonMouseOut.bind(this);
   }
   
+  /**
+   * Sets both player's name and image states.
+   *
+   * @param {string} id
+   * @param {string} username
+   */
   handleSubmit(id, username) {
-    this.setState(function () {
-      var newState = {};
-      newState[id + 'Name'] = username;
-      newState[id + 'Image'] = 'https://github.com/' + username + '.png?size=200';
-      
-      return newState;
-    });
+    this.setState(() => ({
+      [id + 'Name']: username,
+      [id + 'Image']: `https://github.com/${username}.png?size=200`
+    }));
   }
   
+  /**
+   * Resets the target player's name and image states.
+   *
+   * @param {string} id
+   */
   handleReset(id) {
-    this.setState(function () {
-      var newState = {};
-      newState[id + 'Name'] = '';
-      newState[id + 'Image'] = null;
-      
-      return newState;
-    });
+    this.setState(() => ({
+      [id + 'Name']: '',
+      [id + 'Image']: null
+    }));
   }
   
+  /**
+   * Handles mouse over event on the fight button.
+   */
   handleFightButtonMouseOver() {
     this.setState(function() {
       return {
@@ -138,6 +141,9 @@ class Battle extends React.Component {
     })
   }
   
+  /**
+   * Handles mouse out event on the fight button.
+   */
   handleFightButtonMouseOut() {
     this.setState(function() {
       return {
@@ -147,23 +153,19 @@ class Battle extends React.Component {
   }
   
   render() {
-    var playerOneName = this.state.playerOneName;
-    var playerOneImage = this.state.playerOneImage;
-    var playerTwoName = this.state.playerTwoName;
-    var playerTwoImage = this.state.playerTwoImage;
-    var match = this.props.match;
-    var swordsClash = this.state.swordsClash;
+    const { playerOneName, playerOneImage, playerTwoName, playerTwoImage, swordsClash } = this.state;
+    const { match } = this.props;
   
     return (
       <div id="battle">
         <h3>Are You Ready?</h3>
         <section className='battle-username-container'>
           {!playerOneName &&
-          <PlayerInput
-            id='playerOne'
-            label='Player 1 Username'
-            onSubmit={this.handleSubmit}
-          />
+            <PlayerInput
+              id='playerOne'
+              label='Player 1 Username'
+              onSubmit={this.handleSubmit}
+            />
           }
           
           {playerOneImage !== null &&
@@ -175,7 +177,7 @@ class Battle extends React.Component {
               <a className='confirm-cancel-icon'>
                 <img
                   src={noIcon}
-                  onClick={this.handleReset.bind(null, 'playerOne')}
+                  onClick={() => this.handleReset('playerOne')}
                 />
               </a>
             </PlayerPreview>
@@ -196,49 +198,49 @@ class Battle extends React.Component {
           </div>
           
           {!playerTwoName &&
-          <PlayerInput
-            id='playerTwo'
-            label='Player 2 Username'
-            onSubmit={this.handleSubmit}
-          />
+            <PlayerInput
+              id='playerTwo'
+              label='Player 2 Username'
+              onSubmit={this.handleSubmit}
+            />
           }
           
           {playerTwoImage !== null &&
-          <PlayerPreview
-            title='Ready To Fight!'
-            username={playerTwoName}
-            image={playerTwoImage}
-          >
-            <a className='confirm-cancel-icon'>
-              <img
-                src={noIcon}
-                onClick={this.handleReset.bind(null, 'playerTwo')}
-              />
-            </a>
-          </PlayerPreview>
+            <PlayerPreview
+              title='Ready To Fight!'
+              username={playerTwoName}
+              image={playerTwoImage}
+            >
+              <a className='confirm-cancel-icon'>
+                <img
+                  src={noIcon}
+                  onClick={() => this.handleReset('playerTwo')}
+                />
+              </a>
+            </PlayerPreview>
           }
         </section>
+        
         {playerOneImage && playerTwoImage &&
-        <div className='fight-container'>
-          <Link
-            to={{
-              pathname: match.url + '/results',
-              search: '?playerOneName=' + playerOneName + '&playerTwoName=' + playerTwoName
-            }}
-          >
-            <Button
-              onMouseOver={this.handleFightButtonMouseOver}
-              onMouseOut={this.handleFightButtonMouseOut}
+          <div className='fight-container'>
+            <Link
+              to={{
+                pathname: `${match.url}/results`,
+                search: `?playerOneName=${playerOneName }&playerTwoName=${playerTwoName}`
+              }}
             >
-              Fight To The Death!
-            </Button>
-          </Link>
-        </div>
+              <Button
+                onMouseOver={this.handleFightButtonMouseOver}
+                onMouseOut={this.handleFightButtonMouseOut}
+              >
+                Fight To The Death!
+              </Button>
+            </Link>
+          </div>
         }
       </div>
     )
   }
-  
 }
 
 module.exports = Battle;
