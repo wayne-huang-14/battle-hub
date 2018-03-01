@@ -1,10 +1,10 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var api = require('../utils/api');
+const React = require('react');
+const PropTypes = require('prop-types');
+const api = require('../utils/api');
 import {Button, Grid, Table} from 'semantic-ui-react'
 import crownIcon from '../images/crown.png';
 import starsIcon from '../images/stars.png';
-var Loading = require('./Loading');
+const Loading = require('./Loading');
 
 /**
  * Shows the Leaderboard repositories based on language selected.
@@ -13,22 +13,22 @@ var Loading = require('./Loading');
  * @returns {*}
  * @constructor
  */
-function RepoTable(props) {
-  var repos = props.repos;
-  var crownIconStyles = {
+function RepoTable({ repos }) {
+  const crownIconStyles = {
     width: '3.8rem',
     paddingTop: '0.4rem',
-    background: 'no-repeat url("' + crownIcon + '") top right'
+    background: `no-repeat url("${crownIcon}") top right`
   };
   
   /**
    * Returns the row class name based on the repository rank.
    *
-   * @param {int} rank
-   * @returns {String}
+   * @param {number} rank
+   *
+   * @returns {string} || null
    */
-  var getRowClassName = function(rank) {
-    switch(rank) {
+  const getRowClassName = (rank) => {
+    switch (rank) {
       case 1:
       case 2:
       case 3:
@@ -49,11 +49,12 @@ function RepoTable(props) {
   /**
    * Based on the ranking number a presentational name will be returned.
    *
-   * @param {int} rank
-   * @returns {String}
+   * @param {number} rank
+   *
+   * @returns {string}
    */
-  var showRankName = function(rank) {
-    var rankName;
+  const showRankName = (rank) => {
+    let rankName;
     switch (rank) {
       case 1:
         rankName = '1st';
@@ -71,7 +72,7 @@ function RepoTable(props) {
       case 8:
       case 9:
       case 10:
-        rankName = rank + 'th';
+        rankName = `${rank}th`;
         break;
       default:
         rankName = rank;
@@ -97,39 +98,37 @@ function RepoTable(props) {
         </Table.Header>
         
         <Table.Body>
-          {repos.map(function (repo, index) {
-            return (
-              <Table.Row
-                key={repo.name}
-                className={getRowClassName(index + 1)}
-              >
-                <Table.Cell className='leaderboard-rank'>
-                  {showRankName(index + 1)}
-                </Table.Cell>
-                <Table.Cell>
-                  <div className='leaderboard-username-container'>
-                    <div
-                      className='leaderboard-avatar-container'
-                      style={index === 0 ? crownIconStyles : null}
-                    >
-                      <img
-                        src={repo.owner.avatar_url}
-                        className='avatar'
-                        alt={'Avatar for @' + repo.owner.login}
-                      />
-                    </div>
-                    <span className='leaderboard-username'>{'@' + repo.owner.login}</span>
+          {repos.map(({ name, stargazers_count, owner, html_url, language, watchers_count, forks_count, open_issues_count }, index) => (
+            <Table.Row
+              key={name}
+              className={getRowClassName(index + 1)}
+            >
+              <Table.Cell className='leaderboard-rank'>
+                {showRankName(index + 1)}
+              </Table.Cell>
+              <Table.Cell>
+                <div className='leaderboard-username-container'>
+                  <div
+                    className='leaderboard-avatar-container'
+                    style={index === 0 ? crownIconStyles : null}
+                  >
+                    <img
+                      src={owner.avatar_url}
+                      className='avatar'
+                      alt={`Avatar for @${owner.login}`}
+                    />
                   </div>
-                </Table.Cell>
-                <Table.Cell>{repo.stargazers_count}</Table.Cell>
-                <Table.Cell>{repo.name}</Table.Cell>
-                <Table.Cell>{repo.language}</Table.Cell>
-                <Table.Cell>{repo.watchers_count}</Table.Cell>
-                <Table.Cell>{repo.forks_count}</Table.Cell>
-                <Table.Cell>{repo.open_issues_count}</Table.Cell>
-              </Table.Row>
-            )
-          })}
+                  <span className='leaderboard-username'>{`@${owner.login}`}</span>
+                </div>
+              </Table.Cell>
+              <Table.Cell>{stargazers_count}</Table.Cell>
+              <Table.Cell>{name}</Table.Cell>
+              <Table.Cell>{language}</Table.Cell>
+              <Table.Cell>{watchers_count}</Table.Cell>
+              <Table.Cell>{forks_count}</Table.Cell>
+              <Table.Cell>{open_issues_count}</Table.Cell>
+            </Table.Row>
+          ))}
         </Table.Body>
       </Table>
     </div>
@@ -144,30 +143,28 @@ RepoTable.prototypes = {
  * Select Language group that displays the language buttons.
  *
  * @param {Object} props
+ *
  * @returns {*}
- * @constructor
  */
-function SelectLanguageGroup(props) {
-  var languages = ['All', 'JavaScript', 'Python', 'Ruby', 'Java', 'CSS'];
+function SelectLanguageGroup({ selectedLanguage, handleOnClick }) {
+  const languages = ['All', 'JavaScript', 'Python', 'Ruby', 'Java', 'CSS'];
   
   return (
     <div className='select-language-group-container'>
       <Grid columns={6}>
-        {languages.map(function (language) {
-          return (
-            <Grid.Column
-              key={language}
-              className='language-group-columns'
+        {languages.map((language) => (
+          <Grid.Column
+            key={language}
+            className='language-group-columns'
+          >
+            <Button
+              active={selectedLanguage === language}
+              onClick={() => handleOnClick(language)}
             >
-              <Button
-                active={props.selectedLanguage === language}
-                onClick={props.handleOnClick.bind(null, language)}
-              >
-                {language === 'All' ? 'Repository King' : language}
-              </Button>
-            </Grid.Column>
-          )
-        })}
+              {language === 'All' ? 'Repository King' : language}
+            </Button>
+          </Grid.Column>
+        ))}
       </Grid>
     </div>
   )
@@ -194,31 +191,30 @@ class Leaderboard extends React.Component {
     this.updateLanguage(this.state.selectedLanguage);
   }
   
+  /**
+   * When a new language is selected, update the repos state.
+   *
+   * @param {string} lang
+   */
   updateLanguage(lang) {
     // Set repos to null since a new language was selected.
-    this.setState(function () {
-      return {
+    this.setState(() => ({
         selectedLanguage: lang,
         repos: null
-      }
-    });
+    }));
     
     // Fetch repos based on the language selected and set the repos state.
     api.fetchPopularRepos(lang)
-      .then(function (repos) {
-        this.setState(function () {
-          return {
-            repos: repos
-          }
-        })
-      }.bind(this));
+      .then((repos) => this.setState(() => ({repos})));
   }
   
   render() {
+    const { selectedLanguage, repos } = this.state;
+  
     /**
      * Scrolls the document body to the top.
      */
-    var scrollToTop = function() {
+    const scrollToTop = () => {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     };
@@ -228,15 +224,15 @@ class Leaderboard extends React.Component {
         <h3>See Which One's At The Top</h3>
         <p className='subheading'>Choose a category and see which repository has more stars and entered the top 30 listing.</p>
         <SelectLanguageGroup
-          selectedLanguage={this.state.selectedLanguage}
-          handleOnClick={this.updateLanguage.bind(this)}
+          selectedLanguage={selectedLanguage}
+          handleOnClick={this.updateLanguage}
         />
-        {!this.state.repos
+        
+        {!repos
           ? <Loading />
-          : <RepoTable
-            repos={this.state.repos}
-          />
+          : <RepoTable repos={repos} />
         }
+        
         <section className='leaderboard-footnotes'>
           <p>All information is taken from GitHub.com</p>
           <div>
