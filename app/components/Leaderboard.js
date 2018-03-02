@@ -1,10 +1,10 @@
-const React = require('react');
-const PropTypes = require('prop-types');
-const api = require('../utils/api');
-import {Button, Grid, Table} from 'semantic-ui-react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { fetchPopularRepos } from '../utils/api';
+import { Button, Grid, Table } from 'semantic-ui-react'
 import crownIcon from '../images/crown.png';
 import starsIcon from '../images/stars.png';
-const Loading = require('./Loading');
+import Loading from './Loading';
 
 /**
  * Shows the Leaderboard repositories based on language selected.
@@ -204,7 +204,7 @@ class Leaderboard extends React.Component {
     }));
     
     // Fetch repos based on the language selected and set the repos state.
-    api.fetchPopularRepos(lang)
+    fetchPopularRepos(lang)
       .then((repos) => this.setState(() => ({repos})));
   }
   
@@ -248,4 +248,4 @@ class Leaderboard extends React.Component {
   }
 }
 
-module.exports = Leaderboard;
+export default Leaderboard;

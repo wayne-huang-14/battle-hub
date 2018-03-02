@@ -1,5 +1,5 @@
-var React = require('react');
-var Proptypes = require('prop-types');
+import React from 'react';
+import Proptypes from 'prop-types';
 
 /**
  * The player preview when the players are set and ready for battle.
@@ -14,7 +14,7 @@ var Proptypes = require('prop-types');
  * @returns {*}
  * @constructor
  */
-function PlayerPreview({ title, username, score, image, children }) {
+export default function PlayerPreview({ title, username, score, image, children }) {
   return (
     <div
       className='player-wrapper'
@@ -42,5 +42,3 @@ PlayerPreview.prototypes = {
   username: Proptypes.string.isRequired,
   image: Proptypes.string.isRequired,
 };
-
-module.exports = PlayerPreview;

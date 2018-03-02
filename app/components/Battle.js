@@ -1,13 +1,13 @@
-const React = require('react');
-const Proptypes = require('prop-types');
-const Link = require('react-router-dom').Link;
-const PlayerPreview = require('./PlayerPreview');
+import React from 'react';
+import Proptypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import PlayerPreview from './PlayerPreview';
 import {Button} from 'semantic-ui-react';
-const noIcon = require('../images/no.png');
-const yesIcon = require('../images/yes.png');
-const leftSword = require('../images/left-sword.png');
-const rightSword = require('../images/right-sword.png');
-const leftRightSword = require('../images/left-right-sword.png');
+import noIcon from '../images/no.png';
+import yesIcon from '../images/yes.png';
+import leftSword from '../images/left-sword.png';
+import rightSword from '../images/right-sword.png';
+import leftRightSword from '../images/left-right-sword.png';
 
 /**
  * The view that allows the user to enter a username.
@@ -243,4 +243,4 @@ class Battle extends React.Component {
   }
 }
 
-module.exports = Battle;
+export default Battle;

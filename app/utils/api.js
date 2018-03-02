@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const id = "87313cc0a9b63da78945";
 const sec = "ee9ea98f2897d5d4bec6af3abd8e99a8114a2734";
@@ -85,21 +85,20 @@ function sortPlayers(players) {
   return players.sort((a, b) => b.score - a.score)
 }
 
-module.exports = {
-  battle: function(players) {
-    return Promise.all(
-      players.map(getUserData))
-      .then(sortPlayers)
-      .catch(handleError)
-  },
-  fetchPopularRepos: function(language) {
-    const encodedURI = window.encodeURI(
-      `https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`
-    );
-    
-    return (
-      axios.get(encodedURI)
-        .then((response) => response.data.items)
-    )
-  }
-};
+export function battle(players) {
+  return Promise.all(
+    players.map(getUserData))
+    .then(sortPlayers)
+    .catch(handleError)
+}
+
+export function fetchPopularRepos(language) {
+  const encodedURI = window.encodeURI(
+    `https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`
+  );
+  
+  return (
+    axios.get(encodedURI)
+      .then((response) => response.data.items)
+  )
+}

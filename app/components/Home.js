@@ -1,9 +1,9 @@
-var React = require('react');
-var Link = require('react-router-dom').Link;
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {Button} from 'semantic-ui-react';
-var homeBanner = require('../images/home-banner.png');
-var whoWillTopple = require('../images/who-will-topple.png');
-var buildNewEmpire = require('../images/build-new-empire.png');
+import homeBanner from '../images/home-banner.png';
+import whoWillTopple from '../images/who-will-topple.png';
+import buildNewEmpire from '../images/build-new-empire.png';
 
 class Home extends React.Component {
   render() {
@@ -37,4 +37,4 @@ class Home extends React.Component {
   
 }
 
-module.exports = Home;
+export default Home;
