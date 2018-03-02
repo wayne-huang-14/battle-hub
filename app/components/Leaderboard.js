@@ -176,16 +176,10 @@ SelectLanguageGroup.propTypes = {
 };
 
 class Leaderboard extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      selectedLanguage: 'All',
-      repos: null
-    };
-    
-    this.updateLanguage = this.updateLanguage.bind(this);
-  }
+  state = {
+    selectedLanguage: 'All',
+    repos: null
+  };
   
   componentDidMount() {
     this.updateLanguage(this.state.selectedLanguage);
@@ -196,7 +190,7 @@ class Leaderboard extends React.Component {
    *
    * @param {string} lang
    */
-  updateLanguage(lang) {
+  updateLanguage= (lang) => {
     // Set repos to null since a new language was selected.
     this.setState(() => ({
         selectedLanguage: lang,
@@ -206,7 +200,7 @@ class Leaderboard extends React.Component {
     // Fetch repos based on the language selected and set the repos state.
     fetchPopularRepos(lang)
       .then((repos) => this.setState(() => ({repos})));
-  }
+  };
   
   render() {
     const { selectedLanguage, repos } = this.state;

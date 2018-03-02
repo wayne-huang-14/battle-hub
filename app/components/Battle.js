@@ -13,41 +13,40 @@ import leftRightSword from '../images/left-right-sword.png';
  * The view that allows the user to enter a username.
  */
 class PlayerInput extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      username: ''
-    };
-    
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  static propTypes = {
+    id: Proptypes.string.isRequired,
+    label: Proptypes.string.isRequired,
+    onSubmit: Proptypes.func.isRequired
+  };
+  
+  state = {
+    username: ''
+  };
   
   /**
    * Handles when the input is changed and updates the input's value.
    *
    * @param event
    */
-  handleChange(event) {
+  handleChange = (event) => {
     const value = event.target.value;
     
     this.setState(() => ({username: value}));
-  }
+  };
   
   /**
    * Calls the parent's onSubmit handler to update the parent's state.
    *
    * @param event
    */
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
     
     this.props.onSubmit(
       this.props.id,
       this.state.username
     );
-  }
+  };
   
   render() {
     const { id, label } = this.props;
@@ -81,29 +80,14 @@ class PlayerInput extends React.Component {
   }
 }
 
-PlayerInput.propTypes = {
-  id: Proptypes.string.isRequired,
-  label: Proptypes.string.isRequired,
-  onSubmit: Proptypes.func.isRequired
-};
-
 class Battle extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      playerOneName: '',
-      playerOneImage: null,
-      playerTwoName: '',
-      playerTwoImage: null,
-      swordsClash: false,
-    };
-    
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleReset = this.handleReset.bind(this);
-    this.handleFightButtonMouseOver = this.handleFightButtonMouseOver.bind(this);
-    this.handleFightButtonMouseOut = this.handleFightButtonMouseOut.bind(this);
-  }
+  state = {
+    playerOneName: '',
+    playerOneImage: null,
+    playerTwoName: '',
+    playerTwoImage: null,
+    swordsClash: false,
+  };
   
   /**
    * Sets both player's name and image states.
@@ -111,46 +95,46 @@ class Battle extends React.Component {
    * @param {string} id
    * @param {string} username
    */
-  handleSubmit(id, username) {
+  handleSubmit = (id, username) => {
     this.setState(() => ({
       [id + 'Name']: username,
       [id + 'Image']: `https://github.com/${username}.png?size=200`
     }));
-  }
+  };
   
   /**
    * Resets the target player's name and image states.
    *
    * @param {string} id
    */
-  handleReset(id) {
+  handleReset = (id) => {
     this.setState(() => ({
       [id + 'Name']: '',
       [id + 'Image']: null
     }));
-  }
+  };
   
   /**
    * Handles mouse over event on the fight button.
    */
-  handleFightButtonMouseOver() {
+  handleFightButtonMouseOver = () => {
     this.setState(function() {
       return {
         swordsClash: true
       }
     })
-  }
+  };
   
   /**
    * Handles mouse out event on the fight button.
    */
-  handleFightButtonMouseOut() {
+  handleFightButtonMouseOut = () => {
     this.setState(function() {
       return {
         swordsClash: false
       }
     })
-  }
+  };
   
   render() {
     const { playerOneName, playerOneImage, playerTwoName, playerTwoImage, swordsClash } = this.state;

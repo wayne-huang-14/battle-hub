@@ -37,16 +37,12 @@ PlayerPreview.prototypes = {
 };
 
 class Results extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      winner: '',
-      loser: '',
-      error: null,
-      loading: true
-    };
-  }
+  state = {
+    winner: '',
+    loser: '',
+    error: null,
+    loading: true
+  };
   
   componentDidMount() {
     const { playerOneName, playerTwoName } = queryString.parse(this.props.location.search);
