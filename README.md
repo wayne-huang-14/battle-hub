@@ -37,8 +37,8 @@ A browser tab with localhost will appear and the landing page will show.
 
 * [React](https://reactjs.org/) - The JavaScript library for building UIs
 * [Babel](https://babeljs.io/) - Transpiler
+* ES2015 - ES2017 features
 * [Webpack](https://webpack.js.org/) - Assets bundler
-* [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 * [Lodash](https://lodash.com/) - A modern JavaScript utility library delivering modularity, performance & extras.
 * [Semantic UI](https://react.semantic-ui.com) - UI library
 

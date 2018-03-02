@@ -14,7 +14,9 @@
       "env",
       "react"
     ],
-    "plugins":["transform-class-properties"]
+    "plugins": [
+      "transform-class-properties"
+    ]
   },
   "author": "Wayne Huang",
   "license": "ISC",
@@ -34,7 +36,6 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
-    "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
     "lodash": "^4.17.5",
     "prop-types": "^15.6.0",
@@ -43,6 +44,7 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "semantic-ui-css": "^2.2.14",
-    "semantic-ui-react": "^0.78.2"
+    "semantic-ui-react": "^0.78.2",
+    "whatwg-fetch": "^2.0.3"
   }
 }
