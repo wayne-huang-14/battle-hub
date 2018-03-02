@@ -148,6 +148,20 @@ Home
 }
 
 /*
+Footer
+ */
+footer {
+  text-align: center;
+  font-weight: 200;
+  font-style: italic;
+  margin-bottom: 5rem;
+}
+
+footer img {
+  margin-bottom: 1rem;
+}
+
+/*
 Battle
 */
 #battle, #results {
