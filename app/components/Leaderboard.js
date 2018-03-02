@@ -190,16 +190,15 @@ class Leaderboard extends React.Component {
    *
    * @param {string} lang
    */
-  updateLanguage= (lang) => {
+  updateLanguage = async (lang) => {
     // Set repos to null since a new language was selected.
     this.setState(() => ({
         selectedLanguage: lang,
         repos: null
     }));
     
-    // Fetch repos based on the language selected and set the repos state.
-    fetchPopularRepos(lang)
-      .then((repos) => this.setState(() => ({repos})));
+    const repos = await fetchPopularRepos(lang);
+    this.setState(() => ({repos}));
   };
   
   render() {
