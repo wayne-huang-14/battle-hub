@@ -12,13 +12,13 @@ export default function Nav() {
       </div>
       <ul>
         <li>
-          <NavLink exact to="/" activeClassName="active">Home</NavLink>
+          <NavLink exact to="/" activeClassName="active">ABOUT</NavLink>
         </li>
         <li>
-          <NavLink to="/battle" activeClassName="active">Battle</NavLink>
+          <NavLink to="/battle" activeClassName="active">BATTLEGROUND</NavLink>
         </li>
         <li>
-          <NavLink to="/leaderboard" activeClassName="active">Leaderboard</NavLink>
+          <NavLink to="/leaderboard" activeClassName="active">LEADERBOARD</NavLink>
         </li>
       </ul>
     </nav>

@@ -127,13 +127,23 @@ Home
   margin-bottom: 7rem;
 }
 
+.home-endless-clash {
+  position: relative;
+}
+
+.home-endless-clash button {
+  position: absolute;
+  left: 35rem;
+  bottom: 7rem;
+}
+
 .home-leaderboard {
   position: relative;
 }
 
 .home-leaderboard a {
   position: absolute;
-  left: 37rem;
+  left: 36.5rem;
   top: 35rem;
 }
 

@@ -4,6 +4,7 @@ import {Button} from 'semantic-ui-react';
 import homeBanner from '../images/home-banner.png';
 import whoWillTopple from '../images/who-will-topple.png';
 import buildNewEmpire from '../images/build-new-empire.png';
+import endlessClashPersist from '../images/endless-clash-persist.png';
 
 class Home extends React.Component {
   render() {
@@ -17,8 +18,13 @@ class Home extends React.Component {
             </Button>
           </Link>
         </div>
-        <section>
-          <h3>Where An Endless Clash Will Persist</h3>
+        <section className='home-endless-clash'>
+          <img src={endlessClashPersist} alt="Where an endless clash will persist"/>
+          <Link to='/battle'>
+            <Button>
+              BATTLEGROUND
+            </Button>
+          </Link>
         </section>
         <section>
           <img src={whoWillTopple} alt="Who Will Topple The Regime" />
