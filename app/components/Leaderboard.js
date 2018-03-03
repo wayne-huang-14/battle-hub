@@ -230,16 +230,18 @@ class Leaderboard extends React.Component {
           : <RepoTable repos={repos} />
         }
         
-        <section className='leaderboard-footnotes'>
-          <p>All information is taken from GitHub.com</p>
-          <div>
-            <Button
-              onClick={scrollToTop}
-            >
-              BACK TO TOP
-            </Button>
-          </div>
-        </section>
+        {repos &&
+          <section className='leaderboard-footnotes'>
+            <p>All information is taken from GitHub.com</p>
+            <div>
+              <Button
+                onClick={scrollToTop}
+              >
+                BACK TO TOP
+              </Button>
+            </div>
+          </section>
+        }
         <Footer />
       </div>
     );
