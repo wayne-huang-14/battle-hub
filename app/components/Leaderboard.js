@@ -5,6 +5,7 @@ import { Button, Grid, Table } from 'semantic-ui-react'
 import crownIcon from '../images/crown.png';
 import starsIcon from '../images/stars.png';
 import Loading from './Loading';
+import Footer from './Footer';
 
 /**
  * Shows the Leaderboard repositories based on language selected.
@@ -30,9 +31,11 @@ function RepoTable({ repos }) {
   const getRowClassName = (rank) => {
     switch (rank) {
       case 1:
+        return 'leaderboard-first-repo';
       case 2:
+        return 'leaderboard-second-repo';
       case 3:
-        return 'leaderboard-top-repos';
+        return 'leaderboard-third-repo';
       case 4:
       case 5:
       case 6:
@@ -236,6 +239,7 @@ class Leaderboard extends React.Component {
             </Button>
           </div>
         </section>
+        <Footer />
       </div>
     )
   }

@@ -45,6 +45,10 @@ li {
   list-style: none;
 }
 
+section {
+  margin-bottom: 7rem;
+}
+
 .container {
   max-width: 90rem;
   margin: 5rem auto 0;
@@ -124,7 +128,6 @@ Home
 
 #home section {
   text-align: center;
-  margin-bottom: 7rem;
 }
 
 .home-endless-clash {
@@ -317,7 +320,15 @@ Leaderboard
   text-align: center;
 }
 
-.leaderboard-top-repos {
+.leaderboard-first-repo {
+  background: #5CC9F3;
+}
+
+.leaderboard-second-repo {
+  background: #99DDF7;
+}
+
+.leaderboard-third-repo {
   background: #D0F2FF;
 }
 
