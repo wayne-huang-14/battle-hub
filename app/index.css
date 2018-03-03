@@ -104,6 +104,15 @@ nav ul li {
 }
 
 /*
+Summoning
+ */
+.summoning-container {
+  font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/*
 Home
  */
 .banner {

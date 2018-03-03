@@ -4,7 +4,7 @@ import { fetchPopularRepos } from '../utils/api';
 import { Button, Grid, Table } from 'semantic-ui-react'
 import crownIcon from '../images/crown.png';
 import starsIcon from '../images/stars.png';
-import Loading from './Loading';
+import Summoning from './Summoning';
 import Footer from './Footer';
 
 /**
@@ -135,7 +135,7 @@ function RepoTable({ repos }) {
         </Table.Body>
       </Table>
     </div>
-  )
+  );
 }
 
 RepoTable.prototypes = {
@@ -150,7 +150,7 @@ RepoTable.prototypes = {
  * @returns {*}
  */
 function SelectLanguageGroup({ selectedLanguage, handleOnClick }) {
-  const languages = ['All', 'JavaScript', 'Python', 'Ruby', 'Java', 'CSS'];
+  const languages = [ 'All', 'JavaScript', 'Python', 'Ruby', 'Java', 'CSS' ];
   
   return (
     <div className='select-language-group-container'>
@@ -196,17 +196,17 @@ class Leaderboard extends React.Component {
   updateLanguage = async (lang) => {
     // Set repos to null since a new language was selected.
     this.setState(() => ({
-        selectedLanguage: lang,
-        repos: null
+      selectedLanguage: lang,
+      repos: null
     }));
     
     const repos = await fetchPopularRepos(lang);
-    this.setState(() => ({repos}));
+    this.setState(() => ({ repos }));
   };
   
   render() {
     const { selectedLanguage, repos } = this.state;
-  
+    
     /**
      * Scrolls the document body to the top.
      */
@@ -214,18 +214,19 @@ class Leaderboard extends React.Component {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     };
-    
+  
     return (
       <div id="leaderboard">
         <h3>See Which One's At The Top</h3>
-        <p className='subheading'>Choose a category and see which repository has more stars and entered the top 30 listing.</p>
+        <p className='subheading'>Choose a category and see which repository has more stars and entered the top 30
+          listing.</p>
         <SelectLanguageGroup
           selectedLanguage={selectedLanguage}
           handleOnClick={this.updateLanguage}
         />
-        
+      
         {!repos
-          ? <Loading />
+          ? <Summoning />
           : <RepoTable repos={repos} />
         }
         
@@ -241,7 +242,7 @@ class Leaderboard extends React.Component {
         </section>
         <Footer />
       </div>
-    )
+    );
   }
 }
 
