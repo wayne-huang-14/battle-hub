@@ -167,13 +167,13 @@ class Battle extends React.Component {
             </PlayerPreview>
           }
           
-          <div className='swords-icon-container'>
+          <div className='swords-icon-container' style={swordsClash ? {width: '8rem'} : null}>
             {(playerOneImage !== null && !swordsClash) &&
-              <img src={leftSword} alt='Left Sword' />
+              <img className='left-sword' src={leftSword} alt='Left Sword' />
             }
             
             {(playerTwoImage !== null && !swordsClash) &&
-              <img src={rightSword} alt='Right Sword' />
+              <img className='right-sword' src={rightSword} alt='Right Sword' />
             }
             
             {swordsClash &&
@@ -217,7 +217,7 @@ class Battle extends React.Component {
                 onMouseOver={this.handleFightButtonMouseOver}
                 onMouseOut={this.handleFightButtonMouseOut}
               >
-                Fight To The Death!
+                FIGHT TO THE DEATH
               </Button>
             </Link>
           </div>

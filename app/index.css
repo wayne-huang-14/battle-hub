@@ -186,9 +186,8 @@ Battle
 
 .battle-username-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-bottom: 8rem;
-  align-items: flex-end;
 }
 
 .player-wrapper {
@@ -202,6 +201,18 @@ Battle
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.player-wrapper:first-of-type {
+  margin-right: 1.8rem;
+}
+
+.player-wrapper:last-of-type {
+  margin-left: 1.8rem;
+}
+
+.player-wrapper:hover {
+  box-shadow: 0 0 6px #5CC9F3;
 }
 
 .player-wrapper form {
@@ -260,13 +271,19 @@ Battle/Results
 }
 
 .swords-icon-container {
-  height: 17rem;
   width: 14rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.swords-icon-container img:first-of-type {
-  padding-right: 2rem;
+.left-sword {
+  margin-right: auto;
+}
+
+.right-sword {
+  margin-left: auto;
 }
 
 .player-profile-container {
