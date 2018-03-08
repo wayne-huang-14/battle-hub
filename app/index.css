@@ -259,8 +259,22 @@ Battle
 }
 
 .fight-container {
+  height: 25rem;
+}
+
+.fight-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 10rem;
+}
+
+.fight-content p {
+  font-weight: 200;
+  font-style: italic;
+  width: 18rem;
+  text-align: center;
 }
 
 /*
@@ -289,11 +303,15 @@ Battle/Results
 .player-profile-container {
   font-weight: 300;
   width: 10rem;
+  align-self: flex-end;
 }
 
-.battle-again-container {
-  display: flex;
-  justify-content: center;
+.player-profile-container:first-of-type {
+  margin-right: 2rem;
+}
+
+.player-profile-container:last-of-type {
+  margin-left: 2rem;
 }
 
 .won-crown {

@@ -2,7 +2,8 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import PlayerPreview from './PlayerPreview';
-import {Button} from 'semantic-ui-react';
+import Footer from './Footer';
+import { Button } from 'semantic-ui-react';
 import noIcon from '../images/no.png';
 import yesIcon from '../images/yes.png';
 import leftSword from '../images/left-sword.png';
@@ -31,7 +32,7 @@ class PlayerInput extends React.Component {
   handleChange = (event) => {
     const value = event.target.value;
     
-    this.setState(() => ({username: value}));
+    this.setState(() => ({ username: value }));
   };
   
   /**
@@ -67,12 +68,12 @@ class PlayerInput extends React.Component {
           />
           <p>Please type a valid GitHub username.</p>
           {username &&
-            <input
-              className='confirm-cancel-icon'
-              type='image'
-              src={yesIcon}
-              alt='Submit'
-            />
+          <input
+            className='confirm-cancel-icon'
+            type='image'
+            src={yesIcon}
+            alt='Submit'
+          />
           }
         </form>
       </div>
@@ -97,8 +98,8 @@ class Battle extends React.Component {
    */
   handleSubmit = (id, username) => {
     this.setState(() => ({
-      [id + 'Name']: username,
-      [id + 'Image']: `https://github.com/${username}.png?size=200`
+      [ id + 'Name' ]: username,
+      [ id + 'Image' ]: `https://github.com/${username}.png?size=200`
     }));
   };
   
@@ -109,8 +110,8 @@ class Battle extends React.Component {
    */
   handleReset = (id) => {
     this.setState(() => ({
-      [id + 'Name']: '',
-      [id + 'Image']: null
+      [ id + 'Name' ]: '',
+      [ id + 'Image' ]: null
     }));
   };
   
@@ -118,7 +119,7 @@ class Battle extends React.Component {
    * Handles mouse over event on the fight button.
    */
   handleFightButtonMouseOver = () => {
-    this.setState(function() {
+    this.setState(function () {
       return {
         swordsClash: true
       }
@@ -129,7 +130,7 @@ class Battle extends React.Component {
    * Handles mouse out event on the fight button.
    */
   handleFightButtonMouseOut = () => {
-    this.setState(function() {
+    this.setState(function () {
       return {
         swordsClash: false
       }
@@ -139,89 +140,96 @@ class Battle extends React.Component {
   render() {
     const { playerOneName, playerOneImage, playerTwoName, playerTwoImage, swordsClash } = this.state;
     const { match } = this.props;
-  
+    
     return (
       <div id="battle">
         <h3>Are You Ready?</h3>
         <section className='battle-username-container'>
           {!playerOneName &&
-            <PlayerInput
-              id='playerOne'
-              label='Player 1 Username'
-              onSubmit={this.handleSubmit}
-            />
+          <PlayerInput
+            id='playerOne'
+            label='Player 1 Username'
+            onSubmit={this.handleSubmit}
+          />
           }
           
           {playerOneImage !== null &&
-            <PlayerPreview
-              title='Ready To Fight!'
-              username={playerOneName}
-              image={playerOneImage}
-            >
-              <a className='confirm-cancel-icon'>
-                <img
-                  src={noIcon}
-                  onClick={() => this.handleReset('playerOne')}
-                />
-              </a>
-            </PlayerPreview>
+          <PlayerPreview
+            title='Ready To Fight!'
+            username={playerOneName}
+            image={playerOneImage}
+          >
+            <a className='confirm-cancel-icon'>
+              <img
+                src={noIcon}
+                onClick={() => this.handleReset('playerOne')}
+              />
+            </a>
+          </PlayerPreview>
           }
           
-          <div className='swords-icon-container' style={swordsClash ? {width: '8rem'} : null}>
+          <div className='swords-icon-container' style={swordsClash ? { width: '8rem' } : null}>
             {(playerOneImage !== null && !swordsClash) &&
-              <img className='left-sword' src={leftSword} alt='Left Sword' />
+            <img className='left-sword' src={leftSword} alt='Left Sword' />
             }
             
             {(playerTwoImage !== null && !swordsClash) &&
-              <img className='right-sword' src={rightSword} alt='Right Sword' />
+            <img className='right-sword' src={rightSword} alt='Right Sword' />
             }
             
             {swordsClash &&
-              <img src={leftRightSword} alt='Swords clashing' />
+            <img src={leftRightSword} alt='Swords clashing' />
             }
           </div>
           
           {!playerTwoName &&
-            <PlayerInput
-              id='playerTwo'
-              label='Player 2 Username'
-              onSubmit={this.handleSubmit}
-            />
+          <PlayerInput
+            id='playerTwo'
+            label='Player 2 Username'
+            onSubmit={this.handleSubmit}
+          />
           }
           
           {playerTwoImage !== null &&
-            <PlayerPreview
-              title='Ready To Fight!'
-              username={playerTwoName}
-              image={playerTwoImage}
-            >
-              <a className='confirm-cancel-icon'>
-                <img
-                  src={noIcon}
-                  onClick={() => this.handleReset('playerTwo')}
-                />
-              </a>
-            </PlayerPreview>
+          <PlayerPreview
+            title='Ready To Fight!'
+            username={playerTwoName}
+            image={playerTwoImage}
+          >
+            <a className='confirm-cancel-icon'>
+              <img
+                src={noIcon}
+                onClick={() => this.handleReset('playerTwo')}
+              />
+            </a>
+          </PlayerPreview>
           }
         </section>
         
-        {playerOneImage && playerTwoImage &&
-          <div className='fight-container'>
-            <Link
-              to={{
-                pathname: `${match.url}/results`,
-                search: `?playerOneName=${playerOneName }&playerTwoName=${playerTwoName}`
-              }}
-            >
-              <Button
-                onMouseOver={this.handleFightButtonMouseOver}
-                onMouseOut={this.handleFightButtonMouseOut}
+        <div className='fight-container'>
+          {playerOneImage && playerTwoImage &&
+            <div className='fight-content'>
+              <Link
+                to={{
+                  pathname: `${match.url}/results`,
+                  search: `?playerOneName=${playerOneName }&playerTwoName=${playerTwoName}`
+                }}
               >
-                FIGHT TO THE DEATH
-              </Button>
-            </Link>
+                <Button
+                  onMouseOver={this.handleFightButtonMouseOver}
+                  onMouseOut={this.handleFightButtonMouseOut}
+                >
+                  FIGHT TO THE DEATH
+                </Button>
+              </Link>
+              <p>
+                Based on Repository Analysis
+                (followers + stars of all public repositories)
+              </p>
+            </div>
+          }
           </div>
-        }
+        <Footer />
       </div>
     )
   }

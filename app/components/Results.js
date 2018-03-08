@@ -4,6 +4,7 @@ import { battle } from '../utils/api';
 import queryString from 'query-string';
 import { Link } from 'react-router-dom';
 import PlayerPreview from './PlayerPreview';
+import Footer from './Footer';
 import Loading from './Loading';
 import { Button } from 'semantic-ui-react';
 import leftSwordClash from '../images/left-sword-clash.png';
@@ -18,7 +19,7 @@ import leftSwordClash from '../images/left-sword-clash.png';
 function PlayerInfo({ profile, textAlignClass }) {
   return (
     <div className='player-profile-container'>
-      <ul style={{textAlign: textAlignClass}}>
+      <ul style={{ textAlign: textAlignClass }}>
         <li>OTHER INFO</li>
         {profile.name && <li>{profile.name}</li>}
         {profile.location && <li>{profile.location}</li>}
@@ -60,10 +61,10 @@ class Results extends React.Component {
     }
     
     this.setState(() => ({
-        error: null,
-        winner: players[0],
-        loser: players[1],
-        loading: false
+      error: null,
+      winner: players[0],
+      loser: players[1],
+      loading: false
     }));
   }
   
@@ -103,7 +104,7 @@ class Results extends React.Component {
           >
           </PlayerPreview>
           <div className='swords-icon-container'>
-            {<img src={leftSwordClash} alt='Left sword dominating right sword.'/>}
+            {<img src={leftSwordClash} alt='Left sword dominating right sword.' />}
           </div>
           <PlayerPreview
             title='Lost'
@@ -117,13 +118,21 @@ class Results extends React.Component {
             textAlignClass='left'
           />
         </div>
-        <div className='battle-again-container'>
-          <Link to="/battle">
-            <Button>
-              BATTLE AGAIN
-            </Button>
-          </Link>
+        <div className='fight-container'>
+          <div className='fight-content'>
+            <Link to="/battle">
+              <Button>
+                BATTLE AGAIN
+              </Button>
+            </Link>
+            <p>
+              Based on Repository Analysis
+              (followers + stars of all public repositories)
+              There’s no spoils, just bragging rights.
+            </p>
+          </div>
         </div>
+        <Footer />
       </div>
     )
   }
