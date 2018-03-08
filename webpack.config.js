@@ -26,12 +26,15 @@ var config = {
     ]
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'app/index.html'
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
 
