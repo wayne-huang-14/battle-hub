@@ -20,7 +20,7 @@ function PlayerInfo({ profile, textAlignClass }) {
   return (
     <div className='player-profile-container'>
       <ul style={{ textAlign: textAlignClass }}>
-        <li>OTHER INFO</li>
+        <li>INFORMATION:</li>
         {profile.name && <li>{profile.name}</li>}
         {profile.location && <li>{profile.location}</li>}
         {profile.company && <li>{profile.company}</li>}
