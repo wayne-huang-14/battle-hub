@@ -104,6 +104,10 @@ nav ul li {
   color: #2A9DC9;
 }
 
+.active.disabled-link {
+  pointer-events: none;
+}
+
 /*
 Summoning
  */
