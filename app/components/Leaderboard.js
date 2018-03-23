@@ -242,7 +242,7 @@ class Leaderboard extends React.Component {
             </div>
           </section>
         }
-        <Footer />
+        {repos && <Footer />}
       </div>
     );
   }
