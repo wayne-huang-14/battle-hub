@@ -100,6 +100,22 @@ nav ul li {
   top: 4rem;
 }
 
+.logo img:first-child {
+  padding: 5px 0 0 5px;
+}
+
+.logo img:last-child {
+  display: none;
+}
+
+.logo:hover img:first-child {
+  display: none;
+}
+
+.logo:hover img:last-child {
+  display: inline;
+}
+
 .active {
   color: #2A9DC9;
 }

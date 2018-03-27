@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import logoIcon from '../images/logo.png';
+import logoIconHover from '../images/logo-hover.png';
 
 export default function Nav() {
   return (
@@ -8,6 +9,7 @@ export default function Nav() {
       <div className='logo'>
         <Link to='/'>
           <img src={logoIcon} alt="Battle Hub" />
+          <img src={logoIconHover} alt="Battle Hub" />
         </Link>
       </div>
       <ul>
