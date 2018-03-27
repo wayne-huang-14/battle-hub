@@ -97,7 +97,7 @@ class Results extends React.Component {
             textAlignClass='right'
           />
           <PlayerPreview
-            title='Won'
+            title='WON'
             username={winner.profile.login}
             score={winner.score}
             image={winner.profile.avatar_url}
@@ -107,7 +107,7 @@ class Results extends React.Component {
             {<img src={leftSwordClash} alt='Left sword dominating right sword.' />}
           </div>
           <PlayerPreview
-            title='Lost'
+            title='LOST'
             username={loser.profile.login}
             score={loser.score}
             image={loser.profile.avatar_url}

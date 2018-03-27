@@ -13,11 +13,11 @@ body {
   color: #000000;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
   font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
   text-align: center;
   font-weight: normal;
-  letter-spacing: -0.2rem;
+  letter-spacing: -0.1rem;
 }
 
 h3 {
@@ -28,9 +28,9 @@ h3 {
 
 h4 {
   font-family: 'Raleway',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.429rem;
   font-weight: 600;
-  margin: 0 0 1rem 0;
+  margin: 0;
 }
 
 a {
@@ -52,7 +52,7 @@ section {
 
 .container {
   max-width: 90rem;
-  margin: 5rem auto 0;
+  margin: 2.5rem auto 0;
 }
 
 button.ui.button {
@@ -78,17 +78,23 @@ button.ui.button.active, button.ui.button.active:hover {
 /*
 Main Menu
  */
+#main-menu {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
 nav {
   font-family: 'IM Fell Great Primer SC', -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
   font-size: 1.8rem;
   color: #000;
-  margin-bottom: 2.5rem;
 }
 
 nav ul {
   display: flex;
   justify-content: flex-end;
   list-style: none;
+  align-self: center;
 }
 
 nav ul li {
@@ -96,8 +102,7 @@ nav ul li {
 }
 
 .logo {
-  position: absolute;
-  top: 4rem;
+  height: 6.429rem;
 }
 
 .logo img:first-child {
@@ -212,7 +217,7 @@ Battle
 }
 
 .player-wrapper {
-  height: 28rem;
+  height: 28.57rem;
   width: 20rem;
   border: 1px solid #D8D8D8;
   border-radius: 10px;
@@ -333,6 +338,10 @@ Battle/Results
 
 .player-profile-container:last-of-type {
   margin-left: 2rem;
+}
+
+.score {
+  margin-bottom: 2rem;
 }
 
 .won-crown {
