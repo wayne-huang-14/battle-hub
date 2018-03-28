@@ -126,8 +126,8 @@ class Results extends React.Component {
               </Button>
             </Link>
             <p>
-              Based on Repository Analysis
-              (followers + stars of all public repositories)
+              Based on Repository Analysis<br />
+              (followers + stars of all public repositories)<br />
               There’s no spoils, just bragging rights.
             </p>
           </div>

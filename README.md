@@ -4,10 +4,9 @@ Uses the Github API to view the Leaderboard of repositories.
 It can also allow two users to battle it out and show the winner based on how popular his/her repositories are.
 
 ## Design
-[High Fidelity Prototype](https://invis.io/Q3G4HHVY65D)
+[High Fidelity Prototype](https://invis.io/Q3G4HHVY65D#/279197733_About)
 
 ## Demo
-The app is not fully completed yet according to the UX & UI design. 
 
 Production live:
 https://battle-hub.firebaseapp.com/
@@ -43,7 +42,6 @@ A browser tab with localhost will appear and the landing page will show.
 * [Semantic UI](https://react.semantic-ui.com) - UI library
 
 ## Versions
-The app is not fully completed yet according to the UX & UI design. 
 
 ### 2.0
 - Completion of MVP of the app
